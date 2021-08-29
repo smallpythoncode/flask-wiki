@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Flask Wiki - {{ title }}</title>
+    {% else %}
+        <title>Flask Wiki</title>
+    {% endif %}
+    <link rel = "icon" href =
+"https://listimg.pinclipart.com/picdir/s/107-1075957_vector-icono-descarga-gratuita-png-y-vector-python.png"
+        type = "icon">
+    <style>
+        h1 {color: green; font-family: "Courier New";}
+        h2 {font-family: "Courier New";}
+        h3 {color: gray; font-family: "Courier New";}
+    </style>
+</head>
+<body>
+    {% block body_content %}{% endblock body_content %}
+</body>
+</html>
