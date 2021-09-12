@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for
+import random
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -17,11 +18,23 @@ posts = [
     }
 ]
 
+quotes = [
+    "I put that shit on everything!",
+    "I'm just going to take the L on that one.",
+    "Fake it until you make it.",
+    "If you don't chew Big Red, then fuck you.",
+    "Get good, scrub."
+]
+
+
+def random_quote():
+    quote = random.choice(quotes)
+    return quote
 
 @app.route("/")
 @app.route("/home")
 def index():
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, quote=random_quote())
 
 
 @app.route("/about")
