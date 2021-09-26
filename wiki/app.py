@@ -1,7 +1,15 @@
 import random
+
 from flask import Flask, render_template, url_for, request
 
+from wiki.forms import LoginForm
+from wiki.config import SECRET_KEY
+
+# TODO: examine navbar-expand-md for jeff goldblum cover up body
+
 app = Flask(__name__)
+# TODO: add separate config file (config.py)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 posts = [
     {
@@ -40,6 +48,12 @@ def index():
 @app.route("/about")
 def about():
     return render_template("about.html", title="About Page")
+
+
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template("login.html", title="Login", form=form)
 
 
 if __name__ == "__main__":
